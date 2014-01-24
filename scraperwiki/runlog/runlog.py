@@ -1,6 +1,6 @@
 """
 Special module, if you import this, you will get a run log written
-to scraperwiki.sqlite in a table named _sw_runlog on succesful exits
+to data.sqlite in a table named _sw_runlog on succesful exits
 or exceptions.
 """
 

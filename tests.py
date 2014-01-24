@@ -14,7 +14,7 @@ import scraperwiki
 
 
 class TestDb(TestCase):
-    DBNAME = 'scraperwiki.sqlite'
+    DBNAME = 'data.sqlite'
 
     def setUp(self):
         self.cleanUp()
