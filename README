@@ -32,7 +32,7 @@ It is based on the Python module dumptruck. You should expect it to support
 other SQL databases at a later date.</p>
 
 <dl>
-<dt>scraperwiki.<strong>sql.save</strong>(unique_keys, data[, table_name="swdata"])</dt>
+<dt>scraperwiki.<strong>sql.save</strong>(unique_keys, data[, table_name="data"])</dt>
     <dd><p>Saves a data record into the datastore into the table given
     by <var>table_name</var>.</p>
     <p><var>data</var> is a dict object with field names as keys;
@@ -48,7 +48,7 @@ other SQL databases at a later date.</p>
     <p><var>vars</var> is an optional list of parameters, inserted when
     the SQL command contains &lsquo;?&rsquo;s.
     For example:</p>
-    <code>scraperwiki.sql.execute("INSERT INTO swdata VALUES (?,?,?)", [a,b,c])</code>
+    <code>scraperwiki.sql.execute("INSERT INTO data VALUES (?,?,?)", [a,b,c])</code>
     <p>The &lsquo;?&rsquo; convention is like "paramstyle qmark"
     from <a href="http://www.python.org/dev/peps/pep-0249/">Python's
     DB API 2.0</a> (but note that the API to the datastore is
@@ -60,7 +60,7 @@ other SQL databases at a later date.</p>
 
 <dt>scraperwiki.<strong>sql.select</strong>(sqlfrag[, vars])</dt>
     <dd><p>Executes a select command on the datastore.  For example:</p>
-    <code>scraperwiki.sql.select("* FROM swdata LIMIT 10")</code>
+    <code>scraperwiki.sql.select("* FROM data LIMIT 10")</code>
     <p>Returns a list of dicts that have been selected.</p>
     <p><var>vars</var> is an optional list of parameters, inserted when the
     select command contains &lsquo;?&rsquo;s.  This is like the

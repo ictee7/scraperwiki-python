@@ -25,7 +25,7 @@ def execute(sqlquery, data=[], verbose=1):
     return {u'data': map(lambda row: map(dtos, row.values()), result),
             u'keys': result[0].keys()}
 
-def save(unique_keys, data, table_name="swdata", verbose=2, date=None):
+def save(unique_keys, data, table_name="data", verbose=2, date=None):
     if not data:
         return
     dt.create_table(data, table_name = table_name, error_if_exists = False)

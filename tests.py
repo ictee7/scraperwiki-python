@@ -156,7 +156,7 @@ class SaveAndSelect(TestDb):
     def save_and_select(self, d):
         scraperwiki.sqlite.save([], {"foo": d})
 
-        observed = scraperwiki.sqlite.select('* from swdata')[0]['foo']
+        observed = scraperwiki.sqlite.select('* from data')[0]['foo']
         self.assertEqual(d, observed)
 
 
@@ -278,7 +278,7 @@ class TestQuestionMark(TestDb):
 
 class TestDateTime(TestDb):
 
-    def rawdate(self, table="swdata", column="datetime"):
+    def rawdate(self, table="data", column="datetime"):
         connection = sqlite3.connect(self.DBNAME)
         cursor = connection.cursor()
         cursor.execute("SELECT %s FROM %s LIMIT 1" % (column, table))
@@ -291,18 +291,18 @@ class TestDateTime(TestDb):
         scraperwiki.sqlite.save([], {"birthday": d})
         self.assertEqual(str(d), self.rawdate(column="birthday"))
         self.assertEqual(
-            [{u'birthday': str(d)}], scraperwiki.sqlite.select("* from swdata"))
+            [{u'birthday': str(d)}], scraperwiki.sqlite.select("* from data"))
         self.assertEqual(
-            {u'keys': [u'birthday'], u'data': [[str(d)]]}, scraperwiki.sqlite.execute("select * from swdata"))
+            {u'keys': [u'birthday'], u'data': [[str(d)]]}, scraperwiki.sqlite.execute("select * from data"))
 
     def test_save_datetime(self):
         d = datetime.datetime.strptime('1990-03-30', '%Y-%m-%d')
         scraperwiki.sqlite.save([], {"birthday": d})
         self.assertEqual(str(d), self.rawdate(column="birthday"))
         self.assertEqual(
-            [{u'birthday': str(d)}], scraperwiki.sqlite.select("* from swdata"))
+            [{u'birthday': str(d)}], scraperwiki.sqlite.select("* from data"))
         self.assertEqual(
-            {u'keys': [u'birthday'], u'data': [[str(d)]]}, scraperwiki.sqlite.execute("select * from swdata"))
+            {u'keys': [u'birthday'], u'data': [[str(d)]]}, scraperwiki.sqlite.execute("select * from data"))
 
 
 class TestStatus(TestCase):
