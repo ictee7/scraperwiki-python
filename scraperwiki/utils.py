@@ -13,7 +13,6 @@ import sys
 import warnings
 import tempfile
 import urllib.request
-import urllib
 import requests
 
 def scrape(url, params = None, user_agent = None) :
