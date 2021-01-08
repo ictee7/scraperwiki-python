@@ -12,7 +12,7 @@ import os
 import sys
 import warnings
 import tempfile
-import urllib.request as urllib2
+import urllib.request
 import urllib
 import requests
 
