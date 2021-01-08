@@ -12,7 +12,8 @@ import os
 import sys
 import warnings
 import tempfile
-import urllib, urllib2
+import urllib.request as urllib2
+import urllib
 import requests
 
 def scrape(url, params = None, user_agent = None) :
